@@ -1,5 +1,11 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Linking,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { WebView } from "react-native-webview";
 
 const Loading = () => {
@@ -14,18 +20,22 @@ const Loading = () => {
 const ContentView = () => {
   const onNavChange = (state) => {
     console.log("Perubahan:", state);
-    // // const urlSuccess = 'http://fmadmin.ridwanromadhon.com/midtrans/success';
+    // // const urlSuccess = 'Ridwan';
     // const titleWeb = 'Laravel';
     // if (state.title === titleWeb) {
     //   navigation.reset('SuccessOrder');
     // }
+
+    if (state.url.includes(".pdf")) {
+      return Linking.openURL(state.url);
+    }
   };
 
   return (
     <View style={styles.container}>
       <WebView
         startInLoadingState={true}
-        source={{ uri: "https://ridwanromadhon.com" }}
+        source={{ uri: "https://ehapp.graphie.web.id/auth/login" }}
         style={{ marginTop: 20 }}
         renderLoading={() => <Loading />}
         onNavigationStateChange={onNavChange}
