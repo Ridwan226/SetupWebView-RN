@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import { WebView } from "react-native-webview";
+import { useNavigation } from "@react-navigation/native";
 
 const Loading = () => {
   return (
@@ -17,14 +18,16 @@ const Loading = () => {
   );
 };
 
-const ContentView = () => {
+const ContentView = ({ navigation }) => {
   const onNavChange = (state) => {
+    // const navigation = useNavigation();
+
     console.log("Perubahan:", state);
     // // const urlSuccess = 'Ridwan';
-    // const titleWeb = 'Laravel';
-    // if (state.title === titleWeb) {
-    //   navigation.reset('SuccessOrder');
-    // }
+    const titleWeb = "404 Page Not Found";
+    if (state.title === titleWeb) {
+      return navigation.replace("Handleerror");
+    }
 
     if (state.url.includes(".pdf")) {
       return Linking.openURL(state.url);
@@ -35,7 +38,7 @@ const ContentView = () => {
     <View style={styles.container}>
       <WebView
         startInLoadingState={true}
-        source={{ uri: "https://ehapp.graphie.web.id/auth/login" }}
+        source={{ uri: "https://ridwanromadhon.com/" }}
         style={{ marginTop: 20 }}
         renderLoading={() => <Loading />}
         onNavigationStateChange={onNavChange}
