@@ -10,10 +10,16 @@ const SplashScreen = ({ navigation }) => {
   // }, []);
 
   return (
-    <View style={styles.pages}>
-      <Logo />
-      <Text style={styles.textTitle}>Ridwan</Text>
-      <Text style={styles.textTitle}>Ganteng</Text>
+    <View style={styles.page}>
+      <View style={styles.content}>
+        <Logo />
+        <Text style={styles.textTitle}>Ridwan</Text>
+        <Text style={styles.textTitleDesc}>Ganteng</Text>
+        <Text style={styles.textDescPrimary}>Welcome to Ajheryuk</Text>
+        <Text style={styles.textDescSeccoundary}>
+          Best and popular apps for live education course from home
+        </Text>
+      </View>
     </View>
   );
 };
@@ -21,12 +27,34 @@ const SplashScreen = ({ navigation }) => {
 export default SplashScreen;
 
 const styles = StyleSheet.create({
-  pages: {
+  page: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    flex: 1,
+    backgroundColor: "white",
+    paddingHorizontal: 19,
+  },
+  content: {
+    alignItems: "center",
   },
   textTitle: {
     fontSize: 24,
+    fontFamily: "Poppins-SemiBold",
+    color: "#EC5F5F",
+  },
+  textTitleDesc: {
+    fontSize: 20,
+    fontFamily: "Poppins-Medium",
+  },
+  textDescPrimary: {
+    fontSize: 24,
+    fontFamily: "Poppins-SemiBold",
+    marginTop: 80,
+  },
+  textDescSeccoundary: {
+    color: "#8C8C8C",
+    fontSize: 16,
+    fontFamily: "Poppins-Medium",
+    textAlign: "center",
   },
 });
