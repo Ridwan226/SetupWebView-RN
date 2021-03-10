@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import SplashScreen from "../src/SplashScreen";
-import ContentView from "../src/ContentView";
-import Handleerror from "../src/Handleerror";
+import ContentView from "../ContentView";
+import Handleerror from "../Handleerror";
+import { SplashScreen } from "../pages";
 
 const Stack = createStackNavigator();
 
